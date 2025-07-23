@@ -16,7 +16,6 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskRepository taskRepo;
 
-
     @Override
     public List<Task> findAllTasks() {
         return taskRepo.findAll();
@@ -30,17 +29,16 @@ public class TaskServiceImpl implements TaskService {
     }
     @Override
     public Task createTask(TaskCreateRequest request){
+
         Task task = new Task();
         task.setNameTask(request.getNameTask());
         task.setDescription(request.getDescription());
-
-
 
         return taskRepo.save(task);
     }
 
     @Override
-    public Task updateTask(TaskUpdateRequest request, @PathVariable Long taskId) {
+    public Task updateTask(TaskUpdateRequest request, Long taskId) {
         Task task = findTaskById(taskId);
 
         task.setNameTask(request.getNameTask());
@@ -51,9 +49,15 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void deleteTaskById(@PathVariable Long taskId) {
+    public void deleteTaskById(Long taskId) {
         taskRepo.deleteById(taskId);
     }
+
+    @Override
+    public List<Task> findByUserId(String userId) {
+        return taskRepo.findByUserId(userId);
+    }
+
 
 
 }

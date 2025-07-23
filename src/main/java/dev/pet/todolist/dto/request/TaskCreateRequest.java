@@ -1,15 +1,16 @@
 package dev.pet.todolist.dto.request;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TaskCreateRequest {
-    private String nameTask;
-    private String description;
-    private boolean status = false;
+    String nameTask;
+    String description;
+    boolean status = false;
 
 
 }

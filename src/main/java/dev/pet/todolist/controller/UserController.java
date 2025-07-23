@@ -2,6 +2,7 @@ package dev.pet.todolist.controller;
 
 import dev.pet.todolist.dto.request.UserCreateRequest;
 import dev.pet.todolist.dto.request.UserUpdateRequest;
+import dev.pet.todolist.dto.response.UserResponse;
 import dev.pet.todolist.entity.User;
 import dev.pet.todolist.service.impl.UserServiceImpl;
 import jakarta.persistence.PreUpdate;
@@ -18,12 +19,12 @@ public class UserController {
     UserServiceImpl userService;
 
     @GetMapping()
-    public List<User> getAllUsers(){
+    public List<User> GetAllUsers(){
         return userService.findAllUsers();
     }
 
     @GetMapping("/{userId}")
-    public User getUserById(@PathVariable String userId){
+    public UserResponse getUserById(@PathVariable String userId){
         return userService.findByUserId(userId);
     }
     @PostMapping()

@@ -1,15 +1,14 @@
 package dev.pet.todolist.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 
 @Setter
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TaskUpdateRequest {
-    private String nameTask;
-    private String description;
-    private boolean status ;
+     String nameTask;
+     String description;
+     boolean status ;
 }

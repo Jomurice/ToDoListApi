@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface TaskService {
     List<Task> findAllTasks();
+
     Task findTaskById(Long taskId);
     Task createTask (TaskCreateRequest request);
     Task updateTask(TaskUpdateRequest request, Long taskId);
     void deleteTaskById(Long taskId);
 
+    List<Task>findByUserId(String userId);
 }
