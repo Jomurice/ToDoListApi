@@ -37,9 +37,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(UserCreateRequest request) {
 
-        if(userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("user exist");
-        }
+//        if(userRepository.existsByUsername(request.getUsername())) {
+//            throw new RuntimeException("user exist");
+//        }
 
             User user =  userMapper.toUser(request);
 
