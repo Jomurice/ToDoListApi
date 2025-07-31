@@ -13,6 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Tasks")
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
