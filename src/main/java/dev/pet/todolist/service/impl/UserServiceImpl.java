@@ -8,6 +8,8 @@ import dev.pet.todolist.mapper.UserMapper;
 import dev.pet.todolist.repository.UserRepository;
 import dev.pet.todolist.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -42,7 +44,8 @@ public class UserServiceImpl implements UserService {
 //        }
 
             User user =  userMapper.toUser(request);
-
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
 
 
 //        User user = new User();
